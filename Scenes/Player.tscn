@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://Resources/Player/Player.gd" type="Script" id=1]
 [ext_resource path="res://Resources/Player/Player.png" type="Texture" id=2]
@@ -159,11 +159,13 @@ animation = "IdleUp"
 blend_point_0/node = SubResource( 14 )
 blend_point_0/pos = Vector2( -1, 0 )
 blend_point_1/node = SubResource( 15 )
-blend_point_1/pos = Vector2( 0, 1 )
+blend_point_1/pos = Vector2( 0, 1.1 )
 blend_point_2/node = SubResource( 16 )
 blend_point_2/pos = Vector2( 1, 0 )
 blend_point_3/node = SubResource( 17 )
-blend_point_3/pos = Vector2( 0, -1 )
+blend_point_3/pos = Vector2( 0, -1.1 )
+min_space = Vector2( -1, -1.1 )
+max_space = Vector2( 1, 1.1 )
 blend_mode = 1
 
 [sub_resource type="AnimationNodeAnimation" id=19]
@@ -182,19 +184,27 @@ animation = "RunUp"
 blend_point_0/node = SubResource( 19 )
 blend_point_0/pos = Vector2( -1, 0 )
 blend_point_1/node = SubResource( 20 )
-blend_point_1/pos = Vector2( 0, 1 )
+blend_point_1/pos = Vector2( 0, 1.1 )
 blend_point_2/node = SubResource( 21 )
 blend_point_2/pos = Vector2( 1, 0 )
 blend_point_3/node = SubResource( 22 )
-blend_point_3/pos = Vector2( 0, -1 )
+blend_point_3/pos = Vector2( 0, -1.1 )
+min_space = Vector2( -1, -1.1 )
+max_space = Vector2( 1, 1.1 )
 blend_mode = 1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=24]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=25]
 
 [sub_resource type="AnimationNodeStateMachine" id=12]
 states/Idle/node = SubResource( 18 )
 states/Idle/position = Vector2( -567.542, -145.82 )
 states/Run/node = SubResource( 23 )
 states/Run/position = Vector2( -343.406, -147.14 )
-graph_offset = Vector2( -1224.41, -363.14 )
+transitions = [ "Idle", "Run", SubResource( 24 ), "Run", "Idle", SubResource( 25 ) ]
+start_node = "Idle"
+graph_offset = Vector2( -1066.41, -307.14 )
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=13]
 
@@ -206,7 +216,7 @@ position = Vector2( 0, -9 )
 scale = Vector2( 0.997513, 1 )
 texture = ExtResource( 2 )
 hframes = 60
-frame = 10
+frame = 12
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 rotation = -1.5708
@@ -228,4 +238,4 @@ anim_player = NodePath("../AnimationPlayer")
 active = true
 parameters/playback = SubResource( 13 )
 parameters/Idle/blend_position = Vector2( 0, 0 )
-parameters/Run/blend_position = Vector2( 0, -0.781903 )
+parameters/Run/blend_position = Vector2( 0, 0 )
