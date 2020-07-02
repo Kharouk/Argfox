@@ -523,3 +523,9 @@ position = Vector2( 64, 144 )
 
 [node name="Bush3" parent="Depth" instance=ExtResource( 2 )]
 position = Vector2( 264, 48 )
+
+[node name="Bush4" parent="Depth" instance=ExtResource( 2 )]
+position = Vector2( 294, 155 )
+
+[node name="Bush5" parent="Depth" instance=ExtResource( 2 )]
+position = Vector2( 116, 15 )
