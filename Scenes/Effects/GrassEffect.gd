@@ -2,9 +2,9 @@ extends Node2D
 
 onready var animatedSprite = $AnimatedSprite
 
-func _ready():
+func _ready() -> void:
 	animatedSprite.play("Animate")
 	
 
-func _on_AnimatedSprite_animation_finished():
+func _on_AnimatedSprite_animation_finished() -> void:
 	queue_free()
