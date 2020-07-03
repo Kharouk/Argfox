@@ -1,12 +1,13 @@
-[gd_scene load_steps=56 format=2]
+[gd_scene load_steps=57 format=2]
 
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Objects/Bush.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Resources/World/GrassBackground.png" type="Texture" id=3]
 [ext_resource path="res://Resources/World/DirtTileset.png" type="Texture" id=4]
 [ext_resource path="res://Resources/World/CliffTileset.png" type="Texture" id=5]
+[ext_resource path="res://Scenes/Objects/Grass.tscn" type="PackedScene" id=6]
 
-[sub_resource type="TileSet" id=1]
+[sub_resource type="TileSet" id=51]
 resource_local_to_scene = true
 0/name = "Dirt"
 0/texture = ExtResource( 4 )
@@ -497,9 +498,12 @@ position = Vector2( 160, 90 )
 texture = ExtResource( 3 )
 region_enabled = true
 region_rect = Rect2( 0, 0, 320, 180 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="DirtTileMap" type="TileMap" parent="."]
-tile_set = SubResource( 1 )
+tile_set = SubResource( 51 )
 cell_size = Vector2( 16, 16 )
 format = 1
 tile_data = PoolIntArray( -196600, 0, 0, -196599, 0, 1, -196598, 0, 1, -196597, 0, 1, -196596, 0, 1, -196595, 0, 1, -196594, 0, 1, -196593, 0, 5, -196592, 0, 196610, -131064, 0, 65536, -131063, 0, 65537, -131062, 0, 65541, -131061, 0, 131073, -131060, 0, 131073, -131059, 0, 131073, -131058, 0, 131073, -131057, 0, 131074, -65528, 0, 65536, -65527, 0, 65541, -65526, 0, 131074, 8, 0, 65536, 9, 0, 65538, 65544, 0, 65536, 65545, 0, 65538, 131080, 0, 65540, 131081, 0, 131074, 196615, 0, 0, 196616, 0, 131079, 262151, 0, 65540, 262152, 0, 131074, 393215, 0, 0, 327680, 0, 1, 327681, 0, 1, 327682, 0, 1, 327683, 0, 1, 327684, 0, 1, 327685, 0, 1, 327686, 0, 5, 327687, 0, 196615, 458751, 0, 131072, 393216, 0, 131073, 393217, 0, 131073, 393218, 0, 131073, 393219, 0, 131073, 393220, 0, 65542, 393221, 0, 65537, 393222, 0, 65538, 393230, 0, 0, 393231, 0, 1, 393232, 0, 2, 458756, 0, 65536, 458757, 0, 65541, 458758, 0, 131074, 458763, 0, 0, 458764, 0, 1, 458765, 0, 1, 458766, 0, 131078, 458767, 0, 65537, 458768, 0, 65538, 524292, 0, 65536, 524293, 0, 65538, 524299, 0, 131072, 524300, 0, 65542, 524301, 0, 65537, 524302, 0, 65537, 524303, 0, 65541, 524304, 0, 131074, 589828, 0, 65536, 589829, 0, 65538, 589836, 0, 131072, 589837, 0, 131073, 589838, 0, 65542, 589839, 0, 65538, 655364, 0, 131072, 655365, 0, 131074, 655374, 0, 131072, 655375, 0, 131074 )
@@ -515,17 +519,45 @@ tile_data = PoolIntArray( -65528, 0, 0, -65527, 0, 5, -65526, 0, 196610, 0, 0, 0
 [node name="Player" parent="Depth" instance=ExtResource( 1 )]
 position = Vector2( 160, 72 )
 
-[node name="Bush" parent="Depth" instance=ExtResource( 2 )]
+[node name="Bushes" type="YSort" parent="Depth"]
+
+[node name="Bush" parent="Depth/Bushes" instance=ExtResource( 2 )]
 position = Vector2( 64, 48 )
 
-[node name="Bush2" parent="Depth" instance=ExtResource( 2 )]
+[node name="Bush2" parent="Depth/Bushes" instance=ExtResource( 2 )]
 position = Vector2( 64, 144 )
 
-[node name="Bush3" parent="Depth" instance=ExtResource( 2 )]
+[node name="Bush3" parent="Depth/Bushes" instance=ExtResource( 2 )]
 position = Vector2( 264, 48 )
 
-[node name="Bush4" parent="Depth" instance=ExtResource( 2 )]
+[node name="Bush4" parent="Depth/Bushes" instance=ExtResource( 2 )]
 position = Vector2( 294, 155 )
 
-[node name="Bush5" parent="Depth" instance=ExtResource( 2 )]
+[node name="Bush5" parent="Depth/Bushes" instance=ExtResource( 2 )]
 position = Vector2( 116, 15 )
+
+[node name="Grass" type="YSort" parent="Depth"]
+
+[node name="Grass" parent="Depth/Grass" instance=ExtResource( 6 )]
+position = Vector2( 144, 151 )
+
+[node name="Grass2" parent="Depth/Grass" instance=ExtResource( 6 )]
+position = Vector2( 270, 80 )
+
+[node name="Grass3" parent="Depth/Grass" instance=ExtResource( 6 )]
+position = Vector2( 253, 80 )
+
+[node name="Grass4" parent="Depth/Grass" instance=ExtResource( 6 )]
+position = Vector2( 236, 80 )
+
+[node name="Grass5" parent="Depth/Grass" instance=ExtResource( 6 )]
+position = Vector2( 9, 113 )
+
+[node name="Grass6" parent="Depth/Grass" instance=ExtResource( 6 )]
+position = Vector2( 28, 113 )
+
+[node name="Grass7" parent="Depth/Grass" instance=ExtResource( 6 )]
+position = Vector2( 28, 129 )
+
+[node name="Grass8" parent="Depth/Grass" instance=ExtResource( 6 )]
+position = Vector2( 9, 129 )
