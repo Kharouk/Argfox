@@ -5,8 +5,7 @@ func _process(delta):
 		var GrassEffect = load("res://Scenes/Effects/GrassEffect.tscn")
 		var grassEffect = GrassEffect.instance()
 		
-		var world = get_tree().current_scene
-		world.add_child(grassEffect, true)
-		
-		grassEffect.global_position = global_position
+		get_parent().add_child(grassEffect)
+		grassEffect.position = position
+	
 		queue_free()
