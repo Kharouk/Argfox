@@ -28,10 +28,10 @@ func _process(delta) -> void:
 			move_state(delta)
 			
 		ROLL:
-			roll_state(delta)
+			roll_state()
 			
 		ATTACK:
-			attack_state(delta)
+			attack_state()
 
 func move_state(delta: float) -> void:
 	var input_vector := Vector2.ZERO
@@ -61,11 +61,11 @@ func move_state(delta: float) -> void:
 	if Input.is_action_just_pressed("roll"):
 		state = ROLL
 	
-func attack_state(delta: float) -> void:
+func attack_state() -> void:
 	velocity = Vector2.ZERO
 	animationState.travel("Attack")
 
-func roll_state(delta: float) -> void:
+func roll_state() -> void:
 	pass
 	
 func attack_animation_finished():
